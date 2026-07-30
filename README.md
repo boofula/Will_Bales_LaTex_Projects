@@ -1,2 +1,34 @@
 # Will_Bales_LaTex_Projects
-This repository contains all latex projects created by Will Bales. The main function of this folder is to store math Will's math related work and sync this work with their overleaf account.
+
+This repository contains LaTeX projects created by Will Bales.
+
+## Organization choice
+
+This repository is split into two top-level folders:
+
+- `synced/` for projects that should stay aligned with Overleaf
+- `local/` for projects that are better kept outside of Overleaf sync
+
+This keeps the repository flexible: coursework, shared writing, and polished documents can live in `synced/`, while drafts, experiments, archives, or private work can live in `local/`.
+
+## Category folders
+
+Both top-level folders use the same category layout so projects can be moved between them without reorganizing everything:
+
+- `classnotes/`
+- `homework/`
+- `templates/`
+- `personal-research/`
+- `academic-research/`
+- `professional-documents/`
+- `presentations/`
+- `projects/`
+- `teaching/`
+- `writing/`
+- `archives/`
+
+## Suggested usage
+
+- Create one folder per LaTeX project inside the matching category.
+- Keep Overleaf-connected projects in `synced/`.
+- Keep drafts, older work, and anything that does not need Overleaf in `local/`.
