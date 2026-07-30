@@ -1,6 +1,6 @@
 # Will_Bales_LaTex_Projects
 
-This repository contains LaTeX projects created by Will Bales.
+This repository contains LaTeX projects created by Will Bales. The goal of this repository is to have a mediating point between my local LaTeX compiler and Overleaf. This allows for the option of using either Overleaf or my local compiler to write in LaTeX while maintaining consistent projects between both points. Since Overleaf only works online, it may be beneficial a local compiler so that work may still continue. On the other hand, Overleaf provides collaborative services that a local compiler could never provide intuitively.
 
 ## Organization choice
 
