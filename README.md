@@ -35,66 +35,170 @@ Both top-level folders use the same category layout so projects can be moved bet
 
 # LaTeX Project Sync Workflow
 
-This repository is synced with a single Overleaf project and can also be used from a local computer.
+This repository serves as a central index for LaTeX projects synced between GitHub, Overleaf, and local computers.
 
 > [!IMPORTANT]
-> Overleaf GitHub Sync connects one complete Overleaf project to one GitHub repository. It cannot sync separate projects into subfolders of the same repository.
+> Overleaf GitHub Sync connects one complete Overleaf project to one GitHub repository. It cannot connect an Overleaf project directly to a subfolder of this repository.
 >
-> For additional Overleaf projects, create a separate GitHub repository for each one.
+> Each Overleaf project must keep its own GitHub repository. This central repository references those projects as Git submodules.
 
-## Initial setup
+## Adding a synced Overleaf project
 
-1. In Overleaf, open the project to sync.
-2. Select **Menu → Sync → GitHub**.
-3. Link this repository: `boofula/Will_Bales_LaTex_Projects`.
-4. On the local computer, clone the repository:
+For example, the Overleaf project **Cellular-Automata-and-Groups-Notes** is linked directly to:
 
-   ```bash
+`boofula/Cellular-Automata-and-Groups-Notes`
+
+Add it to this central repository as a submodule:
+
+```bash
    git clone git@github.com:boofula/Will_Bales_LaTex_Projects.git
    cd Will_Bales_LaTex_Projects
+   
+   mkdir -p synced/personal-research
+   git submodule add git@github.com:boofula/Cellular-Automata-and-Groups-Notes.git \
+     synced/personal-research/Cellular-Automata-and-Groups-Notes
+   
+   git add .gitmodules synced/personal-research/Cellular-Automata-and-Groups-Notes
+   git commit -m "Add Cellular Automata notes as synced project"
+   git push origin main
+```
+## Cloning this repository
 
-## Local editing workflow
 
-Before making changes, retrieve updates made through Overleaf:
+Clone the central repository and all referenced LaTeX projects:
+
 
 Bash
 
+
+
+
 ```
+git clone --recurse-submodules git@github.com:boofula/Will_Bales_LaTex_Projects.git
+
+```
+
+
+
+
+
+If the repository was already cloned without its submodules:
+
+
+Bash
+
+
+
+
+```
+git submodule update --init --recursive
+
+```
+
+
+
+
+
+## Editing a synced project locally
+
+
+Each submodule is an independent Git repository. To edit and sync a project, work from inside its directory:
+
+
+Bash
+
+
+
+
+```
+cd synced/personal-research/Cellular-Automata-and-Groups-Notes
+
 git pull --ff-only origin main
-
-```
-
-After making local changes:
-
-Bash
-
-```
+# Edit LaTeX files.
 git add -A
-git commit -m "Describe the change"
+git commit -m "Update notes"
 git push origin main
 
 ```
 
-## Overleaf workflow
 
-1. Before editing in Overleaf, select **Pull from GitHub**.
 
-2. Make and compile changes in Overleaf.
+
+
+Then, in Overleaf, select **Pull from GitHub** to retrieve the local changes.
+
+
+## Editing in Overleaf
+
+
+
+1. Before editing, select **Pull from GitHub** in Overleaf.
+
+2. Make and compile changes.
 
 3. Select **Push to GitHub** when finished.
 
+4. Locally, enter the project submodule directory and pull the updates:
+
+
+Bash
+
+
+
+
+```
+cd synced/personal-research/Cellular-Automata-and-Groups-Notes
+git pull --ff-only origin main
+
+```
+
+
+
+## Updating the central repository
+
+
+After pushing a new commit from a submodule, update the central repository's recorded project revision:
+
+
+Bash
+
+
+
+
+```
+cd ../../..
+git add synced/personal-research/Cellular-Automata-and-Groups-Notes
+git commit -m "Update Cellular Automata notes reference"
+git push origin main
+
+```
+
+
+
+
+
+This parent-repository commit does not duplicate project files. It records the exact commit of the project repository referenced by the central repository.
+
+
 ## Avoiding conflicts
 
-Do not edit the same files in Overleaf and locally at the same time.
+
+Do not edit the same project simultaneously in Overleaf and locally.
+
 
 Always follow this order:
 
+
+
 1. Pull the newest changes.
 
-2. Make edits in one place.
+2. Make edits in one location.
 
 3. Commit and push the changes.
 
-4. Pull the updates in the other place before editing there.
+4. Pull the updates in the other location before editing there.
 
-If Git reports a conflict, resolve it locally, commit the resolution, push it to GitHub, and then pull from GitHub in Overleaf.
+
+
+If Git reports a conflict, resolve it locally, commit the resolution, push it to GitHub, and then select **Pull from GitHub** in Overleaf.
+
