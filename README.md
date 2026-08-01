@@ -56,7 +56,7 @@ Add it to this central repository as a submodule:
    
    mkdir -p synced/personal-research
    git submodule add https://github.com/boofula/Cellular-Automata-and-Groups-Notes.git \
-  synced/personal-research/Cellular-Automata-and-Groups-Notes
+     synced/personal-research/Cellular-Automata-and-Groups-Notes
 
    git add .gitmodules synced/personal-research/Cellular-Automata-and-Groups-Notes
    git commit -m "Add Cellular Automata notes as synced project"
@@ -74,7 +74,7 @@ Bash
 
 
 ```
-git clone --recurse-submodules git@github.com:boofula/Will_Bales_LaTex_Projects.git
+   git clone --recurse-submodules https://github.com/boofula/Will_Bales_LaTex_Projects.git
 
 ```
 
