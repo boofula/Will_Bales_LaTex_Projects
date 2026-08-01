@@ -55,31 +55,18 @@ This repository is synced with a single Overleaf project and can also be used fr
 
 ## Local editing workflow
 
-
 Before making changes, retrieve updates made through Overleaf:
 
-
 Bash
-
-
-
 
 ```
 git pull --ff-only origin main
 
 ```
 
-
-
-
-
 After making local changes:
 
-
 Bash
-
-
-
 
 ```
 git add -A
@@ -88,13 +75,7 @@ git push origin main
 
 ```
 
-
-
-
-
 ## Overleaf workflow
-
-
 
 1. Before editing in Overleaf, select **Pull from GitHub**.
 
@@ -102,17 +83,11 @@ git push origin main
 
 3. Select **Push to GitHub** when finished.
 
-
-
 ## Avoiding conflicts
-
 
 Do not edit the same files in Overleaf and locally at the same time.
 
-
 Always follow this order:
-
-
 
 1. Pull the newest changes.
 
@@ -121,7 +96,5 @@ Always follow this order:
 3. Commit and push the changes.
 
 4. Pull the updates in the other place before editing there.
-
-
 
 If Git reports a conflict, resolve it locally, commit the resolution, push it to GitHub, and then pull from GitHub in Overleaf.
