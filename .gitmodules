@@ -1,3 +1,6 @@
 [submodule "synced/personal-research/Cellular-Automata-and-Groups-Notes"]
 	path = synced/personal-research/Cellular-Automata-and-Groups-Notes
 	url = https://github.com/boofula/Cellular-Automata-and-Groups-Notes.git
+[submodule "synced/classnotes/Representation-Theory-Final-Exam-Study-Guide"]
+	path = synced/classnotes/Representation-Theory-Final-Exam-Study-Guide
+	url = https://github.com/boofula/Representation-Theory-Final-Exam-Study-Guide.git
