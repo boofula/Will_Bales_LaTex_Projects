@@ -97,12 +97,58 @@ git submodule update --init --recursive
 
 
 
-
-
 ## Editing a synced project locally
 
+Each submodule is an independent Git repository. The project below uses SSH authentication, which uses the SSH key saved on this computer rather than prompting for a GitHub username and personal access token.
 
-Each submodule is an independent Git repository. To edit and sync a project, work from inside its directory:
+### Configure SSH for the project
+
+After adding the public SSH key to GitHub, change the project remote from HTTPS to SSH:
+
+```bash
+cd synced/personal-research/Cellular-Automata-and-Groups-Notes
+git remote set-url origin git@github.com:boofula/Cellular-Automata-and-Groups-Notes.git
+```
+
+Confirm the remote URL:
+
+
+Bash
+
+
+
+
+```
+git remote -v
+
+```
+
+
+
+
+
+Expected output:
+
+
+Plain text
+
+
+
+
+```
+origin  git@github.com:boofula/Cellular-Automata-and-Groups-Notes.git (fetch)
+origin  git@github.com:boofula/Cellular-Automata-and-Groups-Notes.git (push)
+
+```
+
+
+
+
+
+### Edit and synchronize
+
+
+Work from inside the project directory:
 
 
 Bash
@@ -114,7 +160,7 @@ Bash
 cd synced/personal-research/Cellular-Automata-and-Groups-Notes
 
 git pull --ff-only origin main
-# Edit LaTeX files.
+# Edit LaTeX source files.
 git add -A
 git commit -m "Update notes"
 git push origin main
@@ -127,6 +173,10 @@ git push origin main
 
 Then, in Overleaf, select **Pull from GitHub** to retrieve the local changes.
 
+
+Note
+
+> [!IMPORTANT] Note: HTTPS remotes ask for a GitHub username and personal access token. SSH remotes use the SSH key stored on the computer and normally do not request either.
 
 ## Editing in Overleaf
 
