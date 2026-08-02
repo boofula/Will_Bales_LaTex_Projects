@@ -283,6 +283,25 @@ git pull --ff-only origin main
 
 After pushing a new commit from a submodule, update the central repository's recorded project revision.
 
+To update an existing local copy of the central repository and check out the project versions it records:
+
+
+Bash
+
+
+
+
+```
+cd Will_Bales_LaTex_Projects
+git pull --ff-only origin main
+git submodule update --init --recursive
+
+```
+
+
+> [!NOTE]
+> The central repository records a specific commit for each submodule. The `git submodule update` command checks out that recorded version locally.
+
 If the central repository has not yet been configured to use SSH, run these commands once from the `Will_Bales_LaTex_Projects` directory:
 
 ```bash
