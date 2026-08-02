@@ -101,7 +101,85 @@ git submodule update --init --recursive
 
 Each submodule is an independent Git repository. The project below uses SSH authentication, which uses the SSH key saved on this computer rather than prompting for a GitHub username and personal access token.
 
+### Create and add an SSH key to GitHub
+
+SSH authentication is an alternative to HTTPS authentication. It uses a key stored on the local computer, so Git normally does not request a GitHub username or personal access token when pushing.
+
+Create an SSH key using the email associated with the GitHub account:
+
+```bash
+ssh-keygen -t ed25519 -C "YOUR_GITHUB_EMAIL"
+```
+
+When prompted for a file location, press **Enter** to use the default location:
+
+
+Plain text
+
+
+
+
+```
+/home/YOUR_USERNAME/.ssh/id_ed25519
+
+```
+
+
+
+
+
+Optionally enter a passphrase when prompted. The key files are then stored locally:
+
+
+
+- Private key: `~/.ssh/id_ed25519` — keep this private; never upload or share it.
+
+- Public key: `~/.ssh/id_ed25519.pub` — this is safe to add to GitHub.
+
+
+
+Display the public key:
+
+
+Bash
+
+
+
+
+```
+cat ~/.ssh/id_ed25519.pub
+
+```
+
+
+
+
+
+Copy the entire output line. In GitHub, open **Settings → SSH and GPG keys → New SSH key**, give it a descriptive title such as `Personal computer`, paste the public key, and select **Add SSH key**.
+
+
+Test the connection:
+
+
+Bash
+
+
+
+
+```
+ssh -T git@github.com
+
+```
+
+
+
+
+
+If asked whether to trust GitHub's host key, type `yes`. A successful response confirms authentication but notes that GitHub does not provide shell access.
+
+
 ### Configure SSH for the project
+
 
 After adding the public SSH key to GitHub, change the project remote from HTTPS to SSH:
 
@@ -201,12 +279,25 @@ git pull --ff-only origin main
 
 ```
 
-
-
 ## Updating the central repository
 
+After pushing a new commit from a submodule, update the central repository's recorded project revision.
 
-After pushing a new commit from a submodule, update the central repository's recorded project revision:
+If the central repository has not yet been configured to use SSH, run these commands once from the `Will_Bales_LaTex_Projects` directory:
+
+```bash
+git remote set-url origin git@github.com:boofula/Will_Bales_LaTex_Projects.git
+
+git config -f .gitmodules \
+  submodule.synced/personal-research/Cellular-Automata-and-Groups-Notes.url \
+  git@github.com:boofula/Cellular-Automata-and-Groups-Notes.git
+
+git submodule sync --recursive
+git add .gitmodules
+git commit -m "Use SSH for Cellular Automata notes"
+git push origin main
+```
+Afterward, each time the submodule receives a new commit, return to the central repository and record its updated revision:
 
 
 Bash
@@ -216,6 +307,7 @@ Bash
 
 ```
 cd ../../..
+
 git add synced/personal-research/Cellular-Automata-and-Groups-Notes
 git commit -m "Update Cellular Automata notes reference"
 git push origin main
@@ -224,6 +316,9 @@ git push origin main
 
 
 
+
+
+SSH remotes use the SSH key stored on this computer, so Git normally does not request a GitHub username or personal access token.
 
 
 This parent-repository commit does not duplicate project files. It records the exact commit of the project repository referenced by the central repository.
@@ -248,6 +343,6 @@ Always follow this order:
 4. Pull the updates in the other location before editing there.
 
 
-
-If Git reports a conflict, resolve it locally, commit the resolution, push it to GitHub, and then select **Pull from GitHub** in Overleaf.
+> [!IMPORTANT]
+> If Git reports a conflict, resolve it locally, commit the resolution, push it to GitHub, and then select **Pull from GitHub** in Overleaf.
 
