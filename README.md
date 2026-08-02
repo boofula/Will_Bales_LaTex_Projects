@@ -74,7 +74,7 @@ Bash
 
 
 ```
-   git clone --recurse-submodules https://github.com/boofula/Will_Bales_LaTex_Projects.git
+git clone --recurse-submodules https://github.com/boofula/Will_Bales_LaTex_Projects.git
 
 ```
 
