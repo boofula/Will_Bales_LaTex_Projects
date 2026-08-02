@@ -174,9 +174,8 @@ git push origin main
 Then, in Overleaf, select **Pull from GitHub** to retrieve the local changes.
 
 
-Note
-
-> [!IMPORTANT] Note: HTTPS remotes ask for a GitHub username and personal access token. SSH remotes use the SSH key stored on the computer and normally do not request either.
+> [!IMPORTANT]
+> Note: HTTPS remotes ask for a GitHub username and personal access token. SSH remotes use the SSH key stored on the computer and normally do not request either.
 
 ## Editing in Overleaf
 
