@@ -4,3 +4,6 @@
 [submodule "synced/classnotes/Representation-Theory-Final-Exam-Study-Guide"]
 	path = synced/classnotes/Representation-Theory-Final-Exam-Study-Guide
 	url = https://github.com/boofula/Representation-Theory-Final-Exam-Study-Guide.git
+[submodule "synced/templates/Copilot-Rendered-Responses-Template"]
+	path = synced/templates/Copilot-Rendered-Responses-Template
+	url = https://github.com/boofula/Copilot-Rendered-Responses-Template.git
