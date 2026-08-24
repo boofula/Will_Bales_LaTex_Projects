@@ -7,3 +7,6 @@
 [submodule "synced/templates/Copilot-Rendered-Responses-Template"]
 	path = synced/templates/Copilot-Rendered-Responses-Template
 	url = https://github.com/boofula/Copilot-Rendered-Responses-Template.git
+[submodule "synced/synced/templates/Homework-Template"]
+	path = synced/synced/templates/Homework-Template
+	url = https://github.com/boofula/Homework-Template.git
