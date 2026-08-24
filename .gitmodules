@@ -16,3 +16,6 @@
 [submodule "synced/templates/Random-Document-Template"]
 	path = synced/templates/Random-Document-Template
 	url = https://github.com/boofula/Random-Document-Template.git
+[submodule "synced/templates/Course_Number-Class_Name-Notes-Template-"]
+	path = synced/templates/Course_Number-Class_Name-Notes-Template-
+	url = https://github.com/boofula/Course_Number-Class_Name-Notes-Template-.git
