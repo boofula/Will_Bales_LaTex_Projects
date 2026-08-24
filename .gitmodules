@@ -19,3 +19,6 @@
 [submodule "synced/templates/Course_Number-Class_Name-Notes-Template-"]
 	path = synced/templates/Course_Number-Class_Name-Notes-Template-
 	url = https://github.com/boofula/Course_Number-Class_Name-Notes-Template-.git
+[submodule "synced/templates/Test-and-Exam-Study-Guide-Template"]
+	path = synced/templates/Test-and-Exam-Study-Guide-Template
+	url = https://github.com/boofula/Test-and-Exam-Study-Guide-Template.git
