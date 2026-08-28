@@ -22,3 +22,6 @@
 [submodule "synced/templates/Test-and-Exam-Study-Guide-Template"]
 	path = synced/templates/Test-and-Exam-Study-Guide-Template
 	url = https://github.com/boofula/Test-and-Exam-Study-Guide-Template.git
+[submodule "synced/homework/Loyola_MATH_465_Fall_2026/MATH_465_HW_1"]
+	path = synced/homework/Loyola_MATH_465_Fall_2026/MATH_465_HW_1
+	url = https://github.com/boofula/MATH_465_HW_1
