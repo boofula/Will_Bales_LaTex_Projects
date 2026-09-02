@@ -25,3 +25,6 @@
 [submodule "synced/homework/Loyola_MATH_465_Fall_2026/MATH_465_HW_1"]
 	path = synced/homework/Loyola_MATH_465_Fall_2026/MATH_465_HW_1
 	url = https://github.com/boofula/MATH_465_HW_1
+[submodule "synced/homework/Loyola_MATH_454_Fall_2026/MATH_454_HW_1"]
+	path = synced/homework/Loyola_MATH_454_Fall_2026/MATH_454_HW_1
+	url = https://github.com/boofula/MATH_454_HW_1.git
